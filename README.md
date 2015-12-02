@@ -1,16 +1,17 @@
-
-
 Create a project
 ----------------
 
 ```bash
 mvn archetype:generate \
-    -DarchetypeGroupId=com.github.spring-mvc-archetypes \
-    -DarchetypeArtifactId=spring-mvc-quickstart \
-    -DarchetypeVersion=1.0.0 \
-    -DgroupId=my.groupid \
-    -DartifactId=my-artifactId \
-    -Dversion=version
+  -DarchetypeGroupId=io.sphere.maven-archetypes \
+  -DarchetypeArtifactId=commercetools-spring-mvc-quickstart \
+  -DarchetypeVersion=0.1.9 \
+  -DgroupId=io.sphere.demo \
+  -DartifactId=commercetools-spring-mvc \
+  -Dversion=0.2.0-SNAPSHOT \
+  -DcommercetoolsProjectKey=<YOUR PROJECT KEY> \
+  -DcommercetoolsClientId=<YOUR CLIENT ID> \
+  -DcommercetoolsClientSecret=<YOUR CLIENT SECRET>
 ```
 
 Run the project
