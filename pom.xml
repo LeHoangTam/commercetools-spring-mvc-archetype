@@ -10,10 +10,25 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<licenses>
+		<license>
+			<name>Apache</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 	<scm>
 		<developerConnection>scm:git:git@github.com:sphereio/commercetools-spring-mvc-archetype.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<url>git@github.com:sphereio/commercetools-spring-mvc-archetype.git</url>
+		<connection>scm:git:git@github.com:sphereio/commercetools-spring-mvc-archetype.git</connection>
+	</scm>
+	<developers>
+		<developer>
+			<id>michael</id>
+			<name>Michael Schleichardt</name>
+			<url>https://github.com/schleichardt</url>
+		</developer>
+	</developers>
 	<build>
 		<extensions>
 		  <extension>
