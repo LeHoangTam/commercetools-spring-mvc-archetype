@@ -3,9 +3,9 @@
 	<groupId>io.sphere.maven-archetypes</groupId>
 	<artifactId>commercetools-spring-mvc-quickstart</artifactId>
 	<version>0.1.5-SNAPSHOT</version>
-    <packaging>maven-archetype</packaging>
+	<packaging>maven-archetype</packaging>
 	<name>Commercetools Spring MVC Maven Archetype: Quickstart</name>
-    <description>Archetype for creating Spring MVC 4 web application with commercetools</description>
+	<description>Archetype for creating Spring MVC 4 web application with commercetools</description>
 	<url>https://github.com/sphereio/commercetools-spring-mvc-archetype</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,8 +21,8 @@
 		<developerConnection>scm:git:git@github.com:sphereio/commercetools-spring-mvc-archetype.git</developerConnection>
 		<url>git@github.com:sphereio/commercetools-spring-mvc-archetype.git</url>
 		<connection>scm:git:git@github.com:sphereio/commercetools-spring-mvc-archetype.git</connection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 	<developers>
 		<developer>
 			<id>michael</id>
@@ -32,96 +32,70 @@
 	</developers>
 	<build>
 		<extensions>
-		  <extension>
-			<groupId>org.apache.maven.archetype</groupId>
-			<artifactId>archetype-packaging</artifactId>
-			<version>2.2</version>
-		  </extension>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.2</version>
+			</extension>
 		</extensions>
 
 		<pluginManagement>
-		  <plugins>
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-archetype-plugin</artifactId>
-			  <version>2.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5.3</version>
-				<configuration>
-					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<useReleaseProfile>false</useReleaseProfile>
-					<releaseProfiles>release</releaseProfiles>
-					<goals>deploy</goals>
-				</configuration>
-			</plugin>
-			  <plugin>
-				  <groupId>org.apache.maven.plugins</groupId>
-				  <artifactId>maven-source-plugin</artifactId>
-				  <version>2.2.1</version>
-				  <executions>
-					  <execution>
-						  <id>attach-sources</id>
-						  <goals>
-							  <goal>jar-no-fork</goal>
-						  </goals>
-					  </execution>
-				  </executions>
-			  </plugin>
-			  <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					  </execution>
-				  </executions>
-			  </plugin>
-			  <plugin>
-				  <groupId>org.sonatype.plugins</groupId>
-				  <artifactId>nexus-staging-maven-plugin</artifactId>
-				  <version>1.6.3</version>
-				  <extensions>true</extensions>
-				  <configuration>
-					  <serverId>ossrh</serverId>
-					  <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					  <autoReleaseAfterClose>true</autoReleaseAfterClose>
-				  </configuration>
-			  </plugin>
-		  </plugins>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-archetype-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<useReleaseProfile>false</useReleaseProfile>
+						<releaseProfiles>release</releaseProfiles>
+						<goals>deploy</goals>
+					</configuration>
+				</plugin>
+			</plugins>
 		</pluginManagement>
 	</build>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
 
 	<profiles>
 		<profile>
-			<id>sign-artifacts</id>
-			<activation>
-				<property>
-					<name>sign</name>
-					<value>true</value>
-				</property>
-			</activation>
+			<id>release</id>
 			<build>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9.1</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
 						<executions>
 							<execution>
 								<id>sign-artifacts</id>
