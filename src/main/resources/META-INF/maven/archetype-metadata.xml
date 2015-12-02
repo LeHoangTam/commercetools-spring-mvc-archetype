@@ -25,4 +25,9 @@
 			 <directory>src/test/resources</directory>
 		</fileSet>
 	</fileSets>
+	<requiredProperties>
+		<requiredProperty key="commercetoolsProjectKey"/>
+		<requiredProperty key="commercetoolsClientId"/>
+		<requiredProperty key="commercetoolsClientSecret"/>
+	</requiredProperties>
 </archetype-descriptor>
