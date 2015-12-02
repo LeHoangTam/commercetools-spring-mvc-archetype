@@ -1,4 +1,4 @@
-Simple demo showing products
+Simple example integrating the commercetools JVM SDK with Spring MVC and Spring DI
 
 <img width="1252" alt="screen shot 2015-12-02 at 10 18 06" src="https://cloud.githubusercontent.com/assets/1320833/11526944/3606ac4a-98de-11e5-8f84-30d700fd6bfe.png">
 
