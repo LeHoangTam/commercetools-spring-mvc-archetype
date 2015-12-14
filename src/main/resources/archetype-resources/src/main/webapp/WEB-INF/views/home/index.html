@@ -24,10 +24,10 @@
         <ul th:each="prod : ${allProducts}">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img width="200" height="200" src="image.jpg" th:src="${prod.getMasterVariant().getImages().get(0).getUrl()}" />
+                    <img width="200" height="200" src="image.jpg" th:src="${prod.masterVariant.images[0].url}" th:unless="${prod.masterVariant.images.isEmpty()}" />
                     <div class="caption">
-                        <h3 th:text="${prod.getName().get(locale)}">product name </h3>
-                        <p th:text="${prod.getDescription().get(locale)}">product description</p>
+                        <h3 th:text="${prod.name.find(locale).orElse('missing product name')}">product name </h3>
+                        <p th:utext="${prod.description.find(locale).orElse('missing product description')}" th:unless="${prod.description == null}">product description</p>
                     </div>
                 </div>
             </div>

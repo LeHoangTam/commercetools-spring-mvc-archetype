@@ -1,6 +1,6 @@
 package ${package}.home;
 
-import io.sphere.sdk.client.SphereClient;
+import io.sphere.sdk.client.BlockingSphereClient;
 import io.sphere.sdk.products.ProductProjection;
 import io.sphere.sdk.products.queries.ProductProjectionQuery;
 import io.sphere.sdk.queries.PagedQueryResult;
@@ -16,11 +16,11 @@ import java.util.Locale;
 public class HomeController {
 
 	@Autowired
-	private SphereClient sphereClient;
+	private BlockingSphereClient sphereClient;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(final Model model) {
-		final PagedQueryResult<ProductProjection> queryResult = sphereClient.execute(ProductProjectionQuery.ofCurrent()).toCompletableFuture().join();
+		final PagedQueryResult<ProductProjection> queryResult = sphereClient.executeBlocking(ProductProjectionQuery.ofCurrent());
 		model.addAttribute("allProducts", queryResult.getResults());
 		model.addAttribute("locale", Locale.ENGLISH);
 

@@ -1,27 +1,28 @@
 package ${package}.config;
 
+import io.sphere.sdk.client.BlockingSphereClient;
 import io.sphere.sdk.client.SphereClient;
 import io.sphere.sdk.client.SphereClientConfig;
 import io.sphere.sdk.client.SphereClientFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
+
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
-@PropertySource("classpath:ctp.properties")
 class CommercetoolsPlatformConfig {
 
-    @Value("${projectKey}")
-    private String projectKey;
-    @Value("${clientId}")
-    private String clientId;
-    @Value("${clientSecret}")
-    private String clientSecret;
+    private static final String PROPERTIES_FILE_NAME = "ctp.properties";
 
     @Bean(destroyMethod="close")
-    public SphereClient sphereClient() {
-        final SphereClientConfig clientConfig = SphereClientConfig.of(projectKey, clientId, clientSecret);
-        return SphereClientFactory.of().createClient(clientConfig);
+    public BlockingSphereClient sphereClient() throws IOException {
+        final Properties properties = PropertiesLoaderUtils.loadAllProperties(PROPERTIES_FILE_NAME);
+        final String prefix = "";
+        final SphereClientConfig clientConfig = SphereClientConfig.ofProperties(properties, prefix);
+        final SphereClient sphereClient = SphereClientFactory.of().createClient(clientConfig);
+        return BlockingSphereClient.of(sphereClient, 15, TimeUnit.SECONDS);
     }
 }
