@@ -4,6 +4,10 @@ Simple example integrating the commercetools JVM SDK with Spring MVC and Spring 
 
 Create a project
 ----------------
+requirements:
+* install [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* install [Maven 2+](https://maven.apache.org)
+
 
 ```bash
 mvn archetype:generate \
@@ -12,10 +16,11 @@ mvn archetype:generate \
   -DarchetypeVersion=0.1.9 \
   -DgroupId=io.sphere.demo \
   -DartifactId=commercetools-spring-mvc \
-  -Dversion=0.2.0-SNAPSHOT \
-  -DcommercetoolsProjectKey=<YOUR PROJECT KEY> \
-  -DcommercetoolsClientId=<YOUR CLIENT ID> \
-  -DcommercetoolsClientSecret=<YOUR CLIENT SECRET>
+  -Dversion=0.1.0-SNAPSHOT \
+  -DcommercetoolsProjectKey=YOUR-PROJECT-KEY \
+  -DcommercetoolsClientId=YOUR-CLIENT-ID \
+  -DcommercetoolsClientSecret=YOUR-CLIENT-SECRET && /
+cd commercetools-spring-mvc
 ```
 
 Run the project
