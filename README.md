@@ -19,7 +19,12 @@ mvn archetype:generate \
   -Dversion=0.1.0-SNAPSHOT \
   -DcommercetoolsProjectKey=YOUR-PROJECT-KEY \
   -DcommercetoolsClientId=YOUR-CLIENT-ID \
-  -DcommercetoolsClientSecret=YOUR-CLIENT-SECRET && /
+  -DcommercetoolsClientSecret=YOUR-CLIENT-SECRET
+```
+
+Change to the project folder
+----------------------------
+```bash
 cd commercetools-spring-mvc
 ```
 
