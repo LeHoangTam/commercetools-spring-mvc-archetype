@@ -16,7 +16,7 @@
         <spring.version>4.2.1.RELEASE</spring.version>
         <!-- AssertJ is not a part of Spring IO platform, so the version must be provided explicitly -->
         <assertj-core-version>3.1.0</assertj-core-version>
-        <commercetools-jvm-sdk-version>1.0.0-M24-SNAPSHOT</commercetools-jvm-sdk-version>
+        <commercetools-jvm-sdk-version>1.0.0-M24</commercetools-jvm-sdk-version>
     </properties>
     <parent>
         <groupId>io.spring.platform</groupId>
