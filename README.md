@@ -13,7 +13,7 @@ requirements:
 mvn archetype:generate \
   -DarchetypeGroupId=io.sphere.maven-archetypes \
   -DarchetypeArtifactId=commercetools-spring-mvc-quickstart \
-  -DarchetypeVersion=0.1.9 \
+  -DarchetypeVersion=0.2.0 \
   -DgroupId=io.sphere.demo \
   -DartifactId=commercetools-spring-mvc \
   -Dversion=0.1.0-SNAPSHOT \
