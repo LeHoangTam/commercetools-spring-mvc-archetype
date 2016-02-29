@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.concurrent.CompletionStage;
 import java.util.Locale;
 
 @Controller
@@ -19,11 +20,12 @@ public class HomeController {
 	private BlockingSphereClient sphereClient;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(final Model model) {
-		final PagedQueryResult<ProductProjection> queryResult = sphereClient.executeBlocking(ProductProjectionQuery.ofCurrent());
-		model.addAttribute("allProducts", queryResult.getResults());
-		model.addAttribute("locale", Locale.ENGLISH);
-
-		return "home/index";
+	public CompletionStage<String> index(final Model model) {
+        return sphereClient.execute(ProductProjectionQuery.ofCurrent())
+                .thenApply((PagedQueryResult<ProductProjection> queryResult) -> {
+                    model.addAttribute("allProducts", queryResult.getResults());
+                    model.addAttribute("locale", Locale.ENGLISH);
+                    return "home/index";
+                });
 	}
 }
