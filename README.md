@@ -11,9 +11,9 @@ requirements:
 
 ```bash
 mvn archetype:generate \
-  -DarchetypeGroupId=io.sphere.maven-archetypes \
+  -DarchetypeGroupId=com.commercetools.maven-archetypes \
   -DarchetypeArtifactId=commercetools-spring-mvc-quickstart \
-  -DarchetypeVersion=0.2.0 \
+  -DarchetypeVersion=0.4.0 \
   -DgroupId=io.sphere.demo \
   -DartifactId=commercetools-spring-mvc \
   -Dversion=0.1.0-SNAPSHOT \
